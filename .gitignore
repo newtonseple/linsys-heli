@@ -17,7 +17,7 @@
 # these rules might exclude image files for figures etc.
 # *.ps
 # *.eps
-# *.pdf
+*.pdf
 
 ## Bibliography auxiliary files (bibtex/biblatex/biber):
 *.bbl
@@ -90,7 +90,7 @@ acs-*.bib
 # knitr
 *-concordance.tex
 # TODO Comment the next line if you want to keep your tikz graphics files
-*.tikz
+# *.tikz
 *-tikzDictionary
 
 # listings
