@@ -1,1 +1,2 @@
 Dette er enda en fil med bare svada!
+Her er en ny linje med bare tull.
