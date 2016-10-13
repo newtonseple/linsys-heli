@@ -1,8 +1,30 @@
 To find a model of the system we started with Newton's 2nd law for rotation, which states that
 \begin{equation} \label{eq:N2rot}
-\sum \tau = J*\alpha
+\sum \tau = J \alpha
 \end{equation}
 where $\tau$ is the external torque, $J$ is the moment of inertia, and $\alpha$ is the angular acceleration. Using this for each of the three axis gives
-\begin{equation} \label{eq:system}
-J_p\ddot p = K_f 
-\end{equation}
+\begin{subequations}
+  \begin{align}
+    J_p\ddot{p} &= L_{1}V_{d} \label{eq:ulinsysp}\\
+    J_e\ddot{e} &= L_{2} \cos(e) + L_3 V_s \cos(p) \label{eq:ulinsyse}\\
+    J_\lambda \ddot{\lambda} &= L_4 V_s \cos(e) \sin(p) \label{eq:ulinsysl}
+  \end{align}
+  \label{eq:ulinsys}
+\end{subequations}
+where 
+\begin{subequations}
+	\begin{align*}
+		L_1 &= K_f l_p\\
+		L_2 &= (m_c l_c - 2 m_p l_h)g\\
+		L_3 &= K_f l_h
+	\end{align*}
+\end{subequations}
+
+As the model in \cref{eq:ulinsys} is non-linear we need to linearize the model to be able to design a linear controller. To do this we need a point to linearize around. For this we use $(p^*, e^*, \lambda^*)^T = (0, 0, 0)^T$. We also need to find the voltages $V_s^*$ and $V_d^*$ that makes $(p^*, e^*, \lambda^*)^T$ an equilibrium. Setting \cref{eq:ulinsysp} and \cref{eq:ulinsyse} to zero gives
+
+\begin{subequations}
+	\begin{align*}
+		V_d^* = 0\\
+		V_s^* = -\frac{L_2}{L_3}
+	\end{align*}
+\end{subequations}
