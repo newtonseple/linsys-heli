@@ -19,6 +19,8 @@
 # *.eps
 # *.pdf
 main.pdf
+report/main.pdf
+*main.pdf
 
 ## Bibliography auxiliary files (bibtex/biblatex/biber):
 *.bbl
