@@ -24,7 +24,47 @@ As the model in \cref{eq:ulinsys} is non-linear we need to linearize the model t
 
 \begin{subequations}
 	\begin{align*}
-		V_d^* = 0\\
-		V_s^* = -\frac{L_2}{L_3}
+		V_d^* &= 0\\
+		V_s^* &= -\frac{L_2}{L_3}
 	\end{align*}
 \end{subequations}
+
+The next thing we did was a coordinate transform, to simplify the model of the system. The new states are $ (\tilde p, \tilde e, \tilde \lambda)^T = (p, e, \lambda)^T - (p^*, e^*, \lambda^*)^T $ and the new inputs are $(\tilde V_s, \tilde V_d)^T = (V_s, V_d)^T - (V_s^*, V_d^*)^T $. This gives the system
+
+\begin{subequations}
+	\begin{align}
+		\ddot{\tilde p} &= \frac{L_1}{J_p} \tilde V_d\\
+		\ddot{\tilde e} &= \frac{L_2}{J_e} \cos \tilde e + (L_3 \tilde V_s - L_2) \cos \tilde p\\
+		\ddot{\tilde \lambda} &= %\todo{sjekk notater til Bernt Johan om utrykket står der}
+	\end{align}
+	\label{eq:transformertulinsys}
+\end{subequations}
+
+Now that the system is on a nice form, we can linearize it. This gives us a system on the form $ \dot{\mbf{x}} = \mbf{A} \mbf{x} + \mbf{B} \mbf {u} $, where the matrices is given by
+	
+\begin{subequations}
+	\begin{align}
+		\mbf{A} &= \begin{bmatrix}
+			\partialderiv{\ddot{\tilde{p}}}{\tilde p} = 0 & \partialderiv{\ddot{\tilde p}}{\tilde e} = 0 & \partialderiv{\ddot{\tilde p}}{\tilde \lambda} = 0\\[0.3em]
+			\partialderiv{\ddot{\tilde{e}}}{\tilde p} = 0 & \partialderiv{\ddot{\tilde{e}}}{\tilde e} = 0 & \partialderiv{\ddot{\tilde{e}}}{\tilde \lambda} = 0\\[0.3em]
+			\partialderiv{\ddot{\tilde \lambda}}{\tilde p} = -\frac{L_2}{J_{\lambda}} & \partialderiv{\ddot{\tilde \lambda}}{\tilde e} = 0 & \partialderiv{\ddot{\tilde \lambda}}{\tilde \lambda} = 0
+		\end{bmatrix} \\
+		\mbf{B} &= \begin{bmatrix}
+			\partialderiv{\ddot{\tilde p}}{\tilde V_s} = 0 & \partialderiv{\ddot{\tilde p}}{\tilde V_d} = \frac{L_1}{J_p}\\[0.3em]
+			\partialderiv{\ddot{\tilde e}}{\tilde V_s} = \frac{L_3}{J_e} & \partialderiv{\ddot{\tilde e}}{\tilde V_d} = 0\\[0.3em]
+			\partialderiv{\ddot{\tilde \lambda}}{\tilde V_s} = 0 & \partialderiv{\ddot{\tilde \lambda}}{\tilde V_d} = 0
+		\end{bmatrix}
+	\end{align}
+	\label{eq:linearisert}
+\end{subequations}
+
+Writing out \cref{eq:linearisert} we get
+
+\begin{subequations}
+	\begin{align}
+		\ddot{\tilde p} &= \frac{L_1}{J_p} \tilde V_d = K_1 \tilde V_d\\
+		\ddot{\tilde e} &= \frac{L_3}{J_e} \tilde V_s = K_2 \tilde V_s\\
+		\ddot{\tilde \lambda} &= -\frac{L_2}{J_{\lambda}} \tilde p = K_3 \tilde p
+	\end{align}
+\end{subequations}
+
