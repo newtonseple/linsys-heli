@@ -35,30 +35,41 @@ The next thing we did was a coordinate transform, to simplify the model of the s
 	\begin{align}
 		\ddot{\tilde p} &= \frac{L_1}{J_p} \tilde V_d\\
 		\ddot{\tilde e} &= \frac{L_2}{J_e} \cos \tilde e + (L_3 \tilde V_s - L_2) \cos \tilde p\\
-		\ddot{\tilde \lambda} &= %\todo{sjekk notater til Bernt Johan om utrykket står der}
+		\ddot{\tilde \lambda} &= -\frac{L_2}{J_{\lambda}} \tilde p
 	\end{align}
 	\label{eq:transformertulinsys}
 \end{subequations}
 
-Now that the system is on a nice form, we can linearize it. This gives us a system on the form $ \dot{\mbf{x}} = \mbf{A} \mbf{x} + \mbf{B} \mbf {u} $, where the matrices is given by
+
+Now that the system is on a nice form, we can linearize it. This gives us a system on the form $ \dot{\mbf{x}} = \mbf{A} \mbf{x} + \mbf{B} \mbf {u} $, where $\mbf{\dot x} = (\ddot{\tilde p}, \ddot{\tilde e}, \ddot{\tilde \lambda})^T$, and the matrices $\mbf{A}$ and $\mbf{B}$ is given by
 	
 \begin{subequations}
 	\begin{align}
-		\mbf{A} &= \begin{bmatrix}
-			\partialderiv{\ddot{\tilde{p}}}{\tilde p} = 0 & \partialderiv{\ddot{\tilde p}}{\tilde e} = 0 & \partialderiv{\ddot{\tilde p}}{\tilde \lambda} = 0\\[0.3em]
-			\partialderiv{\ddot{\tilde{e}}}{\tilde p} = 0 & \partialderiv{\ddot{\tilde{e}}}{\tilde e} = 0 & \partialderiv{\ddot{\tilde{e}}}{\tilde \lambda} = 0\\[0.3em]
-			\partialderiv{\ddot{\tilde \lambda}}{\tilde p} = -\frac{L_2}{J_{\lambda}} & \partialderiv{\ddot{\tilde \lambda}}{\tilde e} = 0 & \partialderiv{\ddot{\tilde \lambda}}{\tilde \lambda} = 0
-		\end{bmatrix} \\
-		\mbf{B} &= \begin{bmatrix}
-			\partialderiv{\ddot{\tilde p}}{\tilde V_s} = 0 & \partialderiv{\ddot{\tilde p}}{\tilde V_d} = \frac{L_1}{J_p}\\[0.3em]
-			\partialderiv{\ddot{\tilde e}}{\tilde V_s} = \frac{L_3}{J_e} & \partialderiv{\ddot{\tilde e}}{\tilde V_d} = 0\\[0.3em]
-			\partialderiv{\ddot{\tilde \lambda}}{\tilde V_s} = 0 & \partialderiv{\ddot{\tilde \lambda}}{\tilde V_d} = 0
+		\mbf{A} =\left. \begin{bmatrix}
+			\partialderiv{\ddot{\tilde{p}}}{\tilde p} & \partialderiv{\ddot{\tilde p}}{\tilde e} & \partialderiv{\ddot{\tilde p}}{\tilde \lambda}\\[0.3em]
+			\partialderiv{\ddot{\tilde{e}}}{\tilde p} & \partialderiv{\ddot{\tilde{e}}}{\tilde e} & \partialderiv{\ddot{\tilde{e}}}{\tilde \lambda}\\[0.3em]
+			\partialderiv{\ddot{\tilde \lambda}}{\tilde p} & \partialderiv{\ddot{\tilde \lambda}}{\tilde e} & \partialderiv{\ddot{\tilde \lambda}}{\tilde \lambda}
+		\end{bmatrix} \right|_{\ddot{\tilde p} = 0 ,\, \ddot{\tilde e} = 0,\, \ddot{\tilde \lambda} = 0 } &= 
+		\begin{bmatrix}
+			0 & 0 & 0\\[0.3em]
+			0 & 0 & 0\\[0.3em]
+			-\frac{L_2}{J_\lambda} & 0 & 0
+		\end{bmatrix}\\
+		\mbf{B} = \left. \begin{bmatrix}
+			\partialderiv{\ddot{\tilde p}}{\tilde V_s} & \partialderiv{\ddot{\tilde p}}{\tilde V_d}\\[0.3em]
+			\partialderiv{\ddot{\tilde e}}{\tilde V_s} & \partialderiv{\ddot{\tilde e}}{\tilde V_d}\\[0.3em]
+			\partialderiv{\ddot{\tilde \lambda}}{\tilde V_s} & \partialderiv{\ddot{\tilde \lambda}}{\tilde V_d}
+		\end{bmatrix} \right|_{\tilde V_s = 0,\, \tilde V_d = 0} &= 
+		\begin{bmatrix}
+			0 & \frac{L_1}{J_p}\\[0.3em]
+			\frac{L_3}{J_e} & 0\\[0.3em]
+			0 & 0
 		\end{bmatrix}
 	\end{align}
 	\label{eq:linearisert}
 \end{subequations}
 
-Writing out \cref{eq:linearisert} we get
+Expanding \cref{eq:linearisert} we get
 
 \begin{subequations}
 	\begin{align}
@@ -68,3 +79,14 @@ Writing out \cref{eq:linearisert} we get
 	\end{align}
 \end{subequations}
 
+\iffalse
+Linearizing the system gives
+
+\begin{subequations}
+	\begin{align}
+		\ddot{\tilde p} &= \partialderiv{\ddot{\tilde{p}}}{\tilde p} + \partialderiv{\ddot{\tilde p}}{\tilde e} + \partialderiv{\ddot{\tilde p}}{\tilde \lambda} + \partialderiv{\ddot{\tilde p}}{\tilde V_s} + \partialderiv{\ddot{\tilde p}}{\tilde V_d} = 0 + 0 + 0 + 0 + \frac{L_1}{J_p} \tilde V_d = \frac{L_1}{J_p} \tilde V_d = K_1 \tilde V_d\\
+		\ddot{\tilde e} &= \partialderiv{\ddot{\tilde{e}}}{\tilde p} + \partialderiv{\ddot{\tilde{e}}}{\tilde e} + \partialderiv{\ddot{\tilde{e}}}{\tilde \lambda} + \partialderiv{\ddot{\tilde e}}{\tilde V_s} + \partialderiv{\ddot{\tilde e}}{\tilde V_d} = 0 + 0 + 0 + \frac{L_3}{J_e} \tilde V_s + 0 = \frac{L_3}{J_e} \tilde V_s = K_2 \tilde V_s\\
+		\ddot{\tilde \lambda} &= \partialderiv{\ddot{\tilde \lambda}}{\tilde p} + \partialderiv{\ddot{\tilde \lambda}}{\tilde p} + \partialderiv{\ddot{\tilde \lambda}}{\tilde \lambda} + \partialderiv{\ddot{\tilde \lambda}}{\tilde V_s} + \partialderiv{\ddot{\tilde \lambda}}{\tilde V_d} = -\frac{L_2}{J_{\lambda}} \tilde p + 0 + 0 + 0 + 0 = -\frac{L_2}{J_{\lambda}} \tilde p = K_3 \tilde p 
+	\end{align}
+\end{subequations}
+\fi
