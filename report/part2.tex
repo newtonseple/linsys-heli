@@ -1,6 +1,19 @@
 \section{Part 2: Monovariable Control}
 
 \subsection{Problem 1}
-\subsubsection{Controllability}
-We look at the controllability matrix:
 
+\begin{subequations}
+		\begin{align*}
+		\tilde V_d &= K_{pp} (\tilde p_c - \tilde p) - K_{pd} \dot {\tilde {p}}\\
+		\ddot {\tilde p} &= K_1 (K_{pp} (\tilde p_c - \tilde p) - K_{pd} \dot {\tilde {p}})\\
+		\ddot {\tilde p} &= K_1 K_{pp} \tilde p_c - K_1 K_{pp} \tilde p - K_1 K_{pd} \dot {\tilde p}
+		\end{align*}	
+\end{subequations}
+We take the laplace transform:
+\begin{subequations}
+		\begin{align*}
+		s^2 \hat{\tilde{p}} &= K_1 K_{pp} \hat{\tilde {p_c}} - K_1 K_{pp} \hat{\tilde p} - K_1 K_{pd} s \hat {\tilde p} \\
+		(s^2 + s K_1 K_{pd} + K_1 K_{pp})\tilde{p} &= K_1 K_{pp} \tilde{p_c} \\
+		\frac{\tilde{p}}{\tilde {p_c}} &= \frac{K_1 K_{pp}}{s^2 + s K_1 K_{pd} + K_1 K_{pp}}
+		\end{align*}	
+\end{subequations}
