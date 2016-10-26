@@ -1,0 +1,309 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "part1.tex",
+			"settings":
+			{
+				"buffer_size": 6174,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "part2.tex",
+			"settings":
+			{
+				"buffer_size": 779,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "+--------------------+----------+----------+----------------+\n| Executable         | Type     | Status   | Path           |\n+====================+==========+==========+================+\n| perl               | Required | Missing  |                |\n+--------------------+----------+----------+----------------+\n| latexmk            | Required | Found    | latexmk        |\n+--------------------+----------+----------+----------------+\n| texcount           | Optional | Missing  |                |\n+--------------------+----------+----------+----------------+\n| biber              | Optional | Found    | biber          |\n+--------------------+----------+----------+----------------+\n| bibtex             | Optional | Found    | bibtex         |\n+--------------------+----------+----------+----------------+\n| pdflatex           | Optional | Found    | pdflatex       |\n+--------------------+----------+----------+----------------+\n| xelatex            | Optional | Found    | xelatex        |\n+--------------------+----------+----------+----------------+\n| lualatex           | Optional | Found    | lualatex       |\n+--------------------+----------+----------+----------------+\n| kpsewhich          | Optional | Found    | kpsewhich      |\n+--------------------+----------+----------+----------------+\n| mthelp             | Optional | Missing  |                |\n+--------------------+----------+----------+----------------+\n| sublime            | Optional | Found    | subl           |\n+--------------------+----------+----------+----------------+\n| rscript            | Optional | Missing  |                |\n+--------------------+----------+----------+----------------+\n| adobe_reader       | Viewer   | Missing  |                |\n+--------------------+----------+----------+----------------+\n| sumatra_pdf        | Viewer   | Found    | SumatraPDF.exe |\n+--------------------+----------+----------+----------------+\n| pdf_xchange_viewer | Viewer   | Missing  |                |\n+--------------------+----------+----------+----------------+\n| foxit_reader       | Viewer   | Missing  |                |\n+--------------------+----------+----------+----------------+\n** Checked with LaTeXing 1.2.19\n\n+---------------------------------------------+\n| Searched Path                               |\n+=============================================+\n| C:\\MikTeX\\miktex\\bin                        |\n+---------------------------------------------+\n| C:\\Windows\\system32                         |\n+---------------------------------------------+\n| C:\\Windows                                  |\n+---------------------------------------------+\n| C:\\Windows\\System32\\Wbem                    |\n+---------------------------------------------+\n| C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\ |\n+---------------------------------------------+\n| C:\\bin                                      |\n+---------------------------------------------+\n| C:\\Program Files (x86)\\Skype\\Phone\\         |\n+---------------------------------------------+\n| C:\\Program Files (x86)\\SumatraPDF           |\n+---------------------------------------------+\n| C:\\texlive\\2016\\bin\\win32                   |\n+---------------------------------------------+\n| C:\\texlive\\2016\\bin\\win32                   |\n+---------------------------------------------+\n\n+--------------+-------------------------------------------------------+\n| Executable   | stdout/stderr                                         |\n+==============+=======================================================+\n| perl         | -                                                     |\n+--------------+-------------------------------------------------------+\n| latexmk      |                                                       |\n+--------------+-------------------------------------------------------+\n| texcount     | -                                                     |\n+--------------+-------------------------------------------------------+\n| biber        | biber version: 2.6                                    |\n+--------------+-------------------------------------------------------+\n| bibtex       | BibTeX 0.99d (TeX Live 2016/W32TeX)                   |\n+--------------+-------------------------------------------------------+\n| pdflatex     | pdfTeX 3.14159265-2.6-1.40.17 (TeX Live 2016/W32TeX)  |\n+--------------+-------------------------------------------------------+\n| xelatex      | XeTeX 3.14159265-2.6-0.99996 (TeX Live 2016/W32TeX)   |\n+--------------+-------------------------------------------------------+\n| lualatex     | This is LuaTeX, Version 0.95.0 (TeX Live 2016/W32TeX) |\n+--------------+-------------------------------------------------------+\n| kpsewhich    | kpathsea version 6.2.2                                |\n+--------------+-------------------------------------------------------+\n| mthelp       | -                                                     |\n+--------------+-------------------------------------------------------+\n| sublime      | Sublime Text Build 3114                               |\n+--------------+-------------------------------------------------------+\n| rscript      | -                                                     |\n+--------------+-------------------------------------------------------+",
+			"settings":
+			{
+				"buffer_size": 5278,
+				"line_ending": "Windows",
+				"name": "Check System",
+				"read_only": true,
+				"scratch": true
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "pci ",
+		"selected_items":
+		[
+			[
+				"pci ",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 400.0
+	},
+	"console":
+	{
+		"height": 146.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/Bernt Johan/Downloads/Windows.Portaudio.Only.Static.x64.lib",
+		"/F/Program Files/Umineko/PS3_port/PS3_port_alpha/chiru.file",
+		"/C/Users/Bernt Johan/AppData/Local/Temp/7zO0E736864/m644_modplay.asm",
+		"/C/Users/Bernt Johan/Dropbox/NTNU/Semester 5/TechLED/notes.txt",
+		"/F/SteamLibrary/steamapps/common/Fallout 4/Data/Textures/Terrain/Commonwealth/Objects/Commonwealth.Objects.dds",
+		"/F/Games/Mirrors.Edge.Catalyst-CPY/cpy-mec.nfo",
+		"/F/Program Files/Mr DJ/Mass Effect 2 Digital Deluxe Edition/BioGame/Config/DefaultEngine.ini",
+		"/F/Program Files/Mr DJ/Mass Effect 2 Digital Deluxe Edition/BioGame/Config/PC/Cooked/Coalesced.ini",
+		"/F/Program Files/Umineko/PS3_port/PS3_port_16-09-19/ons.cfg",
+		"/C/Users/Bernt Johan/Dropbox/NTNU/Semester 5/AlgDat/o2_in.txt",
+		"/C/Users/Bernt Johan/Dropbox/UMINEKO NOTES",
+		"/C/Windows/Resources/Themes/Dark Edition.theme",
+		"/F/Program Files/Umineko/PS3_port/PS3_port_16-09-19/graphics/system/wnd/msgwnd_en.png",
+		"/F/Program Files/Umineko/PS3_port/PS3_port_16-09-19/graphics/system/wnd/msgwnd4.png",
+		"/F/Program Files/Umineko/PS3_port_ex/ons.cfg",
+		"/C/bin/yt-getsingle.bat",
+		"/C/Program Files (x86)/Aquasnap/AquaSnap.ini",
+		"/C/Users/Bernt Johan/Desktop/youtify-master/README.md",
+		"/C/Users/Bernt Johan/AppData/Local/4A Games/Metro 2033/user.cfg",
+		"/C/Program Files (x86)/Steam/steamapps/common/N++/NPP/npp.vars"
+	],
+	"find":
+	{
+		"height": 26.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"sresou",
+			".",
+			"loc",
+			"glue",
+			"activ",
+			"60",
+			"blur"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "part1.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6174,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "part2.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 779,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								779,
+								779
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5278,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								417,
+								417
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"word_wrap": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "",
+	"replace":
+	{
+		"height": 48.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
