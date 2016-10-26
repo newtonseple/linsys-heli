@@ -42,3 +42,35 @@ A larger $K_{pp}$ should lead to larger absolute value of the eigenvalues and fa
 
 The closed loop PD pitch control was found to be easier than feed-forward control.
 
+\subsection{Problem 2}
+
+The P-controller is defined as
+\begin{equation}
+	\tilde p_c = K_{rp}(\dot{\tilde{\lambda}}_c - \dot{\tilde{\lambda}}) \label{eq:tildepcp}
+\end{equation}
+
+From \cref{eq:linddotlambda} we have
+\begin{subequations}
+		\begin{align}
+		\ddot{\tilde \lambda} &= K_3 \tilde p \\
+		\frac{\ddot{\tilde \lambda}}{K_3} &= \tilde p
+		\end{align}
+		\label{eq:tildep2}
+\end{subequations}
+
+For this problem we assume $ \tilde p = \tilde p_c$, so by \cref{eq:tildepcp} and \cref{eq:tildep2} we have 
+\begin{equation}
+	\frac{\ddot{\tilde \lambda}}{K_3} = K_{rp}(\dot{\tilde{\lambda}}_c - \dot{\tilde{\lambda}}) \label{eq:1234}
+\end{equation}
+
+Laplace transform of \cref{eq:1234} with respect to travel rate yields
+\begin{subequations}
+		\begin{align}
+		\frac{s \dot{\tilde \lambda}}{K_3} &= K_{rp}(\dot{\tilde{\lambda}}_c - \dot{\tilde{\lambda}}) \\
+		\dot{\tilde \lambda}(\frac{s}{K_3} + K_{rp}) &= K_{rp}\dot{\tilde{\lambda}}_c \\
+		\frac{\dot{\tilde{\lambda}}}{\dot{\tilde{\lambda}}_c} &= \frac{K_{rp}}{\frac{s}{K_3} + K_{rp}} \\
+		\frac{\dot{\tilde{\lambda}}}{\dot{\tilde{\lambda}}_c} &= \frac{K_{rp} K_3}{s + K_{rp} K_3}
+		\end{align}
+\end{subequations}
+
+In this case, a $K_{rp}$ value of $1$ provided a good result. 
