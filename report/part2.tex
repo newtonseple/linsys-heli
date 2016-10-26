@@ -3,17 +3,74 @@
 \subsection{Problem 1}
 
 \begin{subequations}
-		\begin{align*}
+		\begin{align}
 		\tilde V_d &= K_{pp} (\tilde p_c - \tilde p) - K_{pd} \dot {\tilde {p}}\\
 		\ddot {\tilde p} &= K_1 (K_{pp} (\tilde p_c - \tilde p) - K_{pd} \dot {\tilde {p}})\\
 		\ddot {\tilde p} &= K_1 K_{pp} \tilde p_c - K_1 K_{pp} \tilde p - K_1 K_{pd} \dot {\tilde p}
-		\end{align*}	
+		\end{align}	
 \end{subequations}
 We take the laplace transform:
 \begin{subequations}
-		\begin{align*}
+		\begin{align}
 		s^2 \hat{\tilde{p}} &= K_1 K_{pp} \hat{\tilde {p_c}} - K_1 K_{pp} \hat{\tilde p} - K_1 K_{pd} s \hat {\tilde p} \\
 		(s^2 + s K_1 K_{pd} + K_1 K_{pp})\tilde{p} &= K_1 K_{pp} \tilde{p_c} \\
 		\frac{\tilde{p}}{\tilde {p_c}} &= \frac{K_1 K_{pp}}{s^2 + s K_1 K_{pd} + K_1 K_{pp}}
-		\end{align*}	
+		\end{align}
 \end{subequations}
+We write the transfer function as a damped oscillator
+\begin{equation}
+	\frac{K_1 K_{pp}}{s^2 + K_1 K_{pd} + K_1 K_{pp} s} = \frac{\omega _0 ^2}{s^2 + 2\zeta \omega_0 s + \omega _0 ^2}
+\end{equation}
+Giving us the set of equations
+\begin{subequations}
+		\begin{align}
+		K_1 K_{pd}  &= 2\zeta \omega_0 \\
+		K_1 K_{pp}  &= \omega _0 ^2
+		\end{align}
+\end{subequations}
+Solving for $K_{pp}$ and $K_{pd}$ yields
+\begin{subequations}
+		\begin{align}
+		K_{pd}  &= \frac{2\zeta \omega_0}{K_1} \label{eq:k1}\\
+		K_{pp}  &= \frac{\omega _0 ^2}{K_1} \label{eq:k2}
+		\end{align}
+\end{subequations}
+
+We implemented \cref{eq:k1} and \cref{eq:k2} in MATLAB code and started tuning $\omega_0$ and $\zeta$. We let $\zeta=1$, as we imagined a critically damped system would suit a helicopter. We then increased $\omega_0$ until problems occured. We then tuned both parameters, ending up with $\omega_0 = 4$ and $\zeta=1.5$. We speculate that the reason for the increased damping factor is the time delay.
+
+A larger $K_{pp}$ should lead to larger absolute value of the eigenvalues and faster response, while a larger $K_{pd}$ should lead to a tighter spacing of the eigenvalues, slower response and less overshoot.
+
+The closed loop PD pitch control was found to be easier than feed-forward control.
+
+\subsection{Problem 2}
+
+The P-controller is defined as
+\begin{equation}
+	\tilde p_c = K_{rp}(\dot{\tilde{\lambda}}_c - \dot{\tilde{\lambda}}) \label{eq:tildepcp}
+\end{equation}
+
+From \cref{eq:linddotlambda} we have
+\begin{subequations}
+		\begin{align}
+		\ddot{\tilde \lambda} &= K_3 \tilde p \\
+		\frac{\ddot{\tilde \lambda}}{K_3} &= \tilde p
+		\end{align}
+		\label{eq:tildep2}
+\end{subequations}
+
+For this problem we assume $ \tilde p = \tilde p_c$, so by \cref{eq:tildepcp} and \cref{eq:tildep2} we have 
+\begin{equation}
+	\frac{\ddot{\tilde \lambda}}{K_3} = K_{rp}(\dot{\tilde{\lambda}}_c - \dot{\tilde{\lambda}}) \label{eq:1234}
+\end{equation}
+
+Laplace transform of \cref{eq:1234} with respect to travel rate yields
+\begin{subequations}
+		\begin{align}
+		\frac{s \dot{\tilde \lambda}}{K_3} &= K_{rp}(\dot{\tilde{\lambda}}_c - \dot{\tilde{\lambda}}) \\
+		\dot{\tilde \lambda}(\frac{s}{K_3} + K_{rp}) &= K_{rp}\dot{\tilde{\lambda}}_c \\
+		\frac{\dot{\tilde{\lambda}}}{\dot{\tilde{\lambda}}_c} &= \frac{K_{rp}}{\frac{s}{K_3} + K_{rp}} \\
+		\frac{\dot{\tilde{\lambda}}}{\dot{\tilde{\lambda}}_c} &= \frac{K_{rp} K_3}{s + K_{rp} K_3}
+		\end{align}
+\end{subequations}
+
+In this case, a $K_{rp}$ value of $1$ provided a good result. 
