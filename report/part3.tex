@@ -130,7 +130,6 @@ The new $\mbf{Q}$ and $\mbf{R}$ matrices became
 	   \end{bmatrix}
 	 \end{equation}
 	\end{tabularx}
-	\label{eq:QR}
 \end{subequations}
 
 $\mbf{K}$ was computed as in problem 2, but using the augmented matrices. $\mbf{P}$ was computed as in problem 2, but using only the non-augmented system and the part of K concerned with the non-integral part (including the integral part makes the calculation impossible). This was achieved through the MATLAB command \texttt{P=inv((C/(B*K(:,1:3,:)-A))*B)}.
