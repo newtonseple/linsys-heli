@@ -2,6 +2,7 @@
 
 \subsection{Problem 1}
 
+The PD-controller for the pitch is defined as
 \begin{subequations}
 		\begin{align}
 		\tilde V_d &= K_{pp} (\tilde p_c - \tilde p) - K_{pd} \dot {\tilde {p}}\\
@@ -9,7 +10,7 @@
 		\ddot {\tilde p} &= K_1 K_{pp} \tilde p_c - K_1 K_{pp} \tilde p - K_1 K_{pd} \dot {\tilde p}
 		\end{align}	
 \end{subequations}
-We take the laplace transform:
+We take the laplace transform
 \begin{subequations}
 		\begin{align}
 		s^2 \hat{\tilde{p}} &= K_1 K_{pp} \hat{\tilde {p_c}} - K_1 K_{pp} \hat{\tilde p} - K_1 K_{pd} s \hat {\tilde p} \\
@@ -17,7 +18,7 @@ We take the laplace transform:
 		\frac{\tilde{p}}{\tilde {p_c}} &= \frac{K_1 K_{pp}}{s^2 + s K_1 K_{pd} + K_1 K_{pp}}
 		\end{align}
 \end{subequations}
-We write the transfer function as a damped oscillator
+Writing the transfer function as a damped oscillator yields
 \begin{equation}
 	\frac{K_1 K_{pp}}{s^2 + K_1 K_{pd} + K_1 K_{pp} s} = \frac{\omega _0 ^2}{s^2 + 2\zeta \omega_0 s + \omega _0 ^2}
 \end{equation}
@@ -40,11 +41,11 @@ We implemented \cref{eq:k1} and \cref{eq:k2} in MATLAB code and started tuning $
 
 A larger $K_{pp}$ should lead to larger absolute value of the eigenvalues and faster response, while a larger $K_{pd}$ should lead to a tighter spacing of the eigenvalues, slower response and less overshoot.
 
-The closed loop PD pitch control was found to be easier than feed-forward control.
+The closed loop PD pitch controller was found to be more stable and easier to use than the feed-forward controller.
 
 \subsection{Problem 2}
 
-The P-controller is defined as
+The P-controller for the travel rate is defined as
 \begin{equation}
 	\tilde p_c = K_{rp}(\dot{\tilde{\lambda}}_c - \dot{\tilde{\lambda}}) \label{eq:tildepcp}
 \end{equation}

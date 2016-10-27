@@ -24,10 +24,18 @@
 			}
 		},
 		{
-			"file": "part2.tex",
+			"file": "/C/Users/Bernt Johan/Dropbox/linsys-heli/code/helilab vRC5/del 3 - ikke integral/init_heli.m",
 			"settings":
 			{
-				"buffer_size": 3283,
+				"buffer_size": 1603,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/Bernt Johan/Dropbox/linsys-heli/code/helilab vRC5/del 3 - med integral/init_heli.m",
+			"settings":
+			{
+				"buffer_size": 1831,
 				"line_ending": "Windows"
 			}
 		},
@@ -35,15 +43,23 @@
 			"file": "main.tex",
 			"settings":
 			{
-				"buffer_size": 1944,
+				"buffer_size": 2143,
 				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "part3.tex",
+			"settings":
+			{
+				"buffer_size": 3588,
+				"line_ending": "Windows"
 			}
 		},
 		{
 			"file": "part1.tex",
 			"settings":
 			{
-				"buffer_size": 6199,
+				"buffer_size": 6219,
 				"line_ending": "Unix"
 			}
 		}
@@ -71,10 +87,14 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 81.0,
-		"last_filter": "ss matl",
+		"height": 392.0,
+		"last_filter": "ss",
 		"selected_items":
 		[
+			[
+				"ss",
+				"Set Syntax: MATLAB"
+			],
 			[
 				"ss matl",
 				"Set Syntax: MATLAB"
@@ -105,6 +125,8 @@
 	},
 	"file_history":
 	[
+		"/C/Users/Bernt Johan/Dropbox/linsys-heli/code/helilab vRC5/Del 4 oppg 2a estimering med integral/init_heli.m",
+		"/C/Users/Bernt Johan/Dropbox/linsys-heli/report/part2.tex",
 		"/C/Users/Bernt Johan/Dropbox/linsys-heli/report/part1.tex",
 		"/C/Users/Bernt Johan/Downloads/Windows.Portaudio.Only.Static.x64.lib",
 		"/F/Program Files/Umineko/PS3_port/PS3_port_alpha/chiru.file",
@@ -143,6 +165,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"pmb",
 			"sresou",
 			".",
 			"loc",
@@ -167,7 +190,7 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 4,
 			"sheets":
 			[
 				{
@@ -192,10 +215,10 @@
 							"syntax": "Packages/Matlab/Matlab.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 432.0,
+						"translation.y": 301.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
@@ -220,55 +243,83 @@
 							"syntax": "Packages/Matlab/Matlab.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 540.0,
+						"translation.y": 165.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/C/Users/Bernt Johan/Dropbox/linsys-heli/code/helilab vRC5/del 3 - ikke integral/init_heli.m",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1603,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1457,
+								1413
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Matlab/Matlab.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 810.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "part2.tex",
+					"buffer": 3,
+					"file": "/C/Users/Bernt Johan/Dropbox/linsys-heli/code/helilab vRC5/del 3 - med integral/init_heli.m",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3283,
+						"buffer_size": 1831,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3269,
-								3269
+								1728,
+								1728
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/LaTeXing/support/LaTeX.tmLanguage"
+							"syntax": "Packages/Matlab/Matlab.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 1190.0,
+						"translation.y": 432.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
+					"buffer": 4,
 					"file": "main.tex",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1944,
+						"buffer_size": 2143,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1858,
-								1858
+								1805,
+								1805
 							]
 						],
 						"settings":
@@ -278,27 +329,55 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1190.0,
+						"translation.y": 1080.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "part1.tex",
+					"buffer": 5,
+					"file": "part3.tex",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6199,
+						"buffer_size": 3588,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3451,
-								3429
+								3418,
+								3418
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeXing/support/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1741.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "part1.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6219,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2206,
+								2171
 							]
 						],
 						"settings":
@@ -307,10 +386,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 982.0,
+						"translation.y": 915.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 4,
 					"type": "text"
 				}
 			]
