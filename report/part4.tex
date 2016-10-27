@@ -1,5 +1,5 @@
 \subsection{Problem 1}
-To get a better controller we want to use an observer to estimate some of the states, rather than using the derivative of the output. To make the observer we need a model of the system with all the sattes, both measured, and those we want to estimate. This model can be written as
+To get a better controller we want to use an observer to estimate some of the states, rather than using the derivative of the output. To make the observer we need a model of the system with all the states, both measured, and those we want to estimate. This model can be written as
 
 \begin{subequations}
 	\begin{align*}
@@ -52,3 +52,9 @@ where the vectors $\mbf{x}$, $\mbf{u}$ and $\mbf{y}$, and the matrices $\mbf{A}$
 			\end{bmatrix}
 	\end{align}
 \end{subequations}
+
+\subsection{Problem 2}
+Using the MATLAB functions \texttt{obsv(sys)} and \texttt{rank(matrix)} we found that the observability matrix $\mathcal{O}$ have a $\text{rank} = 6$, which is the same as the systems dimension. This means that the system is observable.
+
+We then used the new model to make a linear observer on the form $\mbf{\dot{\hat x}} = \mbf{A}\mbf{\hat x} + \mbf{B}\mbf{u} + \mbf{L} (\mbf{y}-\mbf{C}\mbf{\hat x})$. We then used the function \texttt{place(A', C', poles).'} to calculate the observer gain matrix $\mbf{L}$. For the controller with integral effect the poles we chose were placed in a fan with a opening of \todo{insert angle here}, and a radius of $20 \cdot r_0$ where $r_0$ is the absolute value of the largest pole of the closed loop system $\mbf{\dot x} = (\mbf{A} - \mbf{B} \mbf{K}) \mbf{x}$. The way we ended up with these poles were by following the recommendations from the lectures of placing them in a fan with a radius sufficiently larger than the absolute value of the largest pole of the cosed loop system, and then trying different radii until we found one that gave a satisfying response. For the controller without integral effect we followed the same procedure, and ended up with the same $\mbf{L}$ matrix. \todo{Er det godt nok forklart hvordan vi fant og plaserte polene?} 
+
