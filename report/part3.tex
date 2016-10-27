@@ -1,4 +1,4 @@
-\section{Part 3}
+\section{Part 3: Multivariable Control}
 \subsection{Problem 1}
 The system can be described as
 \begin{subequations}
@@ -76,5 +76,35 @@ Finally, the $\mbf{K}$ was calculated by tha MATLAB function \verb+K = lqr(A,B,Q
 \TODO{Legg inn faktisk K og P?}
 
 \subsection{Problem 3}
-We add the integrated states and get the augmented system with new $\mbf{A}$ and $\mbf{B}$ matrices.
-
+We add the integrated states and get the augmented system with new matrices, described by the state space model
+\begin{subequations}
+\begin{equation}
+	\mbf{\dot x = Ax + Bu}
+\end{equation}
+where \\
+	\begin{tabularx}{\textwidth}{XX}
+	 \begin{equation}
+	   \mbf{x} = \begin{bmatrix}
+	   	\tilde p \\ \dot{\tilde p} \\ \dot{\tilde e} \\ \int_0^t{\tilde p} \\ \int_0^t{\dot{\tilde e}}
+	   \end{bmatrix}
+	 \end{equation}
+	 &
+	 \begin{equation}
+	   \mbf{u} = \begin{bmatrix}
+	   	\tilde {V_s} \\ \tilde {V_d}
+	   \end{bmatrix}
+	 \end{equation}
+	\\
+		\begin{equation}
+			\mbf{A} = \begin{bmatrix}
+				0 & 1 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 & 0 \\ 1 & 0 & 0 & 0 & 0 \\ 0 & 0 & 1 & 0 & 0
+			\end{bmatrix}
+		\end{equation}
+		&
+		\begin{equation}
+			\mbf{B} = \begin{bmatrix}
+				0 & 0 \\ 0 & K_1 \\ K_2 & 0
+			\end{bmatrix}
+		\end{equation}
+	\end{tabularx}
+\end{subequations}
