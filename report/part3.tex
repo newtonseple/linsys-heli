@@ -72,7 +72,7 @@ We then set out to define the weighting matrices $\mbf{Q}$ and $\mbf{R}$. We use
 
 Keeping the units in mind, these values make sense. The allowable pitch error is 1/8th of a circle, the allowable pitch rate ``error'' is 1 revolution per second, and the allowable elevation rate error is 1/10th of a revolution per second. The allowable inputs are 9 volts, which makes sense, considering that the motors saturate at a sum or difference of 10 volts.
 
-Finally, the $\mbf{K}$ was calculated by the MATLAB function \texttt{K = lqr(A,B,Q,R)}. Numerically, 
+Finally, the $\mbf{K}$ was calculated by the MATLAB function \texttt{K = lqr(A,B,Q,R)}. Numerically: 
 
 
 \begin{subequations}
@@ -145,7 +145,7 @@ The new $\mbf{Q}$ and $\mbf{R}$ matrices became
 	 \end{align}
 \end{subequations}
 
-$\mbf{K}$ was computed as in problem 2, but using the augmented matrices. $\mbf{P}$ was computed as in problem 2, but using only the non-augmented system and the part of $\mbf{K}$ concerned with the non-integral part (including the integral part makes the calculation impossible, presumably because the system would always approach the setpoint). This was achieved through the MATLAB command \texttt{P=inv((C/(B*K(:,1:3,:)-A))*B)}. Numerically, 
+$\mbf{K}$ was computed as in problem 2, but using the augmented matrices. $\mbf{P}$ was computed as in problem 2, but using only the non-augmented system and the part of $\mbf{K}$ concerned with the non-integral part (including the integral part makes the calculation impossible, presumably because the system would always approach the setpoint). This was achieved through the MATLAB command \texttt{P=inv((C/(B*K(:,1:3,:)-A))*B)}. Numerically: 
 
 \begin{subequations}
 	 \begin{align}
