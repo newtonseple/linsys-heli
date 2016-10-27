@@ -58,8 +58,37 @@ Using the MATLAB functions \texttt{obsv(sys)} and \texttt{rank(matrix)} we found
 
 We then used the new model to make a linear observer on the form $\mbf{\dot{\hat x}} = \mbf{A}\mbf{\hat x} + \mbf{B}\mbf{u} + \mbf{L} (\mbf{y}-\mbf{C}\mbf{\hat x})$. The observer gain matrix $L$ was found by using the function \texttt{place(A', C', poles).'}. For the controller with integral effect the poles we chose were placed in a fan with a opening of \todo{insert angle here}, and a radius of $20 \cdot r_0$ where $r_0$ is the absolute value of the largest pole of the closed loop system $\mbf{\dot x} = (\mbf{A} - \mbf{B} \mbf{K}) \mbf{x}$. The way we ended up with these poles were by following the recommendations from the lectures of placing them in a fan with a radius sufficiently larger than the absolute value of the largest pole of the cosed loop system, and then trying different radii until we found one that gave a satisfying response. For the controller without integral effect we followed the same procedure, and ended up with the same $\mbf{L}$ matrix. \todo[inline]{Er det godt nok forklart hvordan vi fant og plaserte polene?} 
 
+
+As the observer does not simply differentiate the output, but also uses it's knowledge of the input it is able to filter out some of the noise. A fast observer will give an accurate estimate, whereas a slow observer will filter out more noise. This means that these benefits needs to be balanced when choosing the poles of the observer. As we can see from \cref{fig:pest}, \cref{fig:pdest}, \cref{fig:eest} and \cref{fig:edest} the observer follows the real values closely, while filters out most of the noise.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.95\textwidth]{images/est_med_int/p_est.png}
+	\caption{Pitch. Yellow = measurement, red = estimate, blue = reference}
+	\label{fig:pest}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.95\textwidth]{images/est_med_int/pd_est.png}
+	\caption{Pitch rate. Yellow = measurement, red = estimate}
+	\label{fig:pdest}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.95\textwidth]{images/est_med_int/e_est.png}
+	\caption{Elevation. Yellow = measurement, red = estimate}
+	\label{fig:eest}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.95\textwidth]{images/est_med_int/ed_est.png}
+	\caption{Elevation rate. Yellow = measurement, red = estimate, blue = reference}
+	\label{fig:edest}
+\end{figure}
+
+
 \subsection{Problem 3}
-If we only measure $\tilde p$ and $\tilde e$ we we get th following $\mbf{A}$ and $\mbf{C}$ matrices:
+If we only measure $\tilde p$ and $\tilde e$ we we get the following $\mbf{A}$ and $\mbf{C}$ matrices:
 
 \begin{subequations}
 	\begin{align}
