@@ -96,5 +96,5 @@ Using this model we tried to fly the helicopter using only feed-forward, without
 
 After this we did some more preparations to be able to control the helicopter. First we added constant values the the output of the encoder so that we would be able to start the helicopter form the table, rather than from all joints at zero. Next we found the motor force constant $K_f$ by finding the voltage that would keep the helicopter horizontal. This gives
 \begin{equation}
-	K_f = -\frac{(m_cl_c-2m_pl_h)g}{l_hV_s^*} = 0.14689
+	K_f = -\frac{(m_cl_c-2m_pl_h)g}{l_hV_s^*} = 0.14689\si[per-mode=symbol]{\newton\per\volt}
 \end{equation}
