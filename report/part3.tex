@@ -42,11 +42,11 @@ We verified the controllability of the system by checking that the controllabili
 		0 & 0 & 0 & K_1 & 0 & 0\\ 0 & K_1 & 0 & 0 & 0 & 0\\ K_2 & 0 & 0 & 0 & 0 & 0
 	\end{bmatrix} \label{eq:c}
 \end{equation}
-The feed-forward matrix $\mbf{P}$ was defined as \todo{gjorde vi noen utregninger her? Kanskje sitere forelesningen/boken/?????}
+The feed-forward matrix $\mbf{P}$ is given by %\todo{gjorde vi noen utregninger her? Kanskje sitere forelesningen/boken/?????}
 \begin{equation}
 	\mbf{P = (C (B K-A)^{-1} B)^{-1}}
 \end{equation}
-and computed by MATLAB after $\mbf{K}$.
+and is computed as such by MATLAB after $\mbf{K}$.
 
 We then set out to define the weighting matrices $\mbf{Q}$ and $\mbf{R}$. We used Bryson's rule (setting each diagonal weight to the inverse square of the maximum allowable error($\mbf{Q}$) or input($\mbf{R}$)) as a starting point. Keeping the form of Bryson's rule, we adjusted the ``maximum allowable values'' until results were satisfactory. We ended up with Q and R matrices shown in \cref{eq:QR}.
 
