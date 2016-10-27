@@ -58,3 +58,25 @@ Using the MATLAB functions \texttt{obsv(sys)} and \texttt{rank(matrix)} we found
 
 We then used the new model to make a linear observer on the form $\mbf{\dot{\hat x}} = \mbf{A}\mbf{\hat x} + \mbf{B}\mbf{u} + \mbf{L} (\mbf{y}-\mbf{C}\mbf{\hat x})$. We then used the function \texttt{place(A', C', poles).'} to calculate the observer gain matrix $\mbf{L}$. For the controller with integral effect the poles we chose were placed in a fan with a opening of \todo{insert angle here}, and a radius of $20 \cdot r_0$ where $r_0$ is the absolute value of the largest pole of the closed loop system $\mbf{\dot x} = (\mbf{A} - \mbf{B} \mbf{K}) \mbf{x}$. The way we ended up with these poles were by following the recommendations from the lectures of placing them in a fan with a radius sufficiently larger than the absolute value of the largest pole of the cosed loop system, and then trying different radii until we found one that gave a satisfying response. For the controller without integral effect we followed the same procedure, and ended up with the same $\mbf{L}$ matrix. \todo{Er det godt nok forklart hvordan vi fant og plaserte polene?} 
 
+\subsection{Problem 3}
+If we only measure $\tilde p$ and $\tilde e$ we we get th following $\mbf{A}$ and $\mbf{C}$ matrices:
+
+\begin{subequations}
+	\begin{align}
+		\mbf{A} &= \begin{bmatrix}
+			0 & 1 & 0 & 0 & 0 & 0\\
+			0 & 0 & 0 & 0 & 0 & 0\\
+			0 & 0 & 0 & 1 & 0 & 0\\
+			0 & 0 & 0 & 0 & 0 & 0\\
+			0 & 0 & 0 & 0 & 0 & 1\\
+			K_3 & 0 & 0 & 0 & 0 & 0
+		\end{bmatrix}\\
+		\mbf{C} &= \begin{bmatrix}
+			1 & 0 & 0 & 0 & 0 & 0\\
+			0 & 0 & 1 & 0 & 0 & 0\\
+			0 & 0 & 0 & 0 & 1 & 0
+		\end{bmatrix}
+	\end{align}
+\end{subequations}
+
+If we calculate the observer matrix $\mathcal{O}$ we get that the rank is 6, which means that the system is observable. However trying to control the system we found that the observer were too bad to be used to control the helicopter. The reason for the bad estimates is that we control the pitch and pitch rate which are not measured. This means that we try to estimate a states that are the second and third derivative of one of the states that we measure. This means that even though it is theoretically possible to control the system, it is very hard to make a good controller that works well on the real system. Another reason why the estimates are poor are because the estimator is based on a linear model, while the real system is non-linear. Even though we weren't able to control the system, we were at least able to get the estimator stable, and when we hold the helicopter down, all the estimates go towards the right values.
