@@ -1,0 +1,80 @@
+\section{Part 3}
+\subsection{Problem 1}
+The system can be described as
+\begin{subequations}
+\begin{equation}
+	\mbf{\dot x = Ax + Bu}
+\end{equation}
+where \\
+	\begin{tabularx}{\textwidth}{XX}
+	 \begin{equation}
+	   \mbf{x} = \begin{bmatrix}
+	   	\tilde p \\ \dot{\tilde p} \\ \dot{\tilde e}
+	   \end{bmatrix}
+	 \end{equation}
+	 &
+	 \begin{equation}
+	   \mbf{u} = \begin{bmatrix}
+	   	\tilde {V_s} \\ \tilde {V_d}
+	   \end{bmatrix}
+	 \end{equation}
+	\\
+		\begin{equation}
+			\mbf{A} = \begin{bmatrix}
+				0 & 1 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 0
+			\end{bmatrix}
+		\end{equation}
+		&
+		\begin{equation}
+			\mbf{B} = \begin{bmatrix}
+				0 & 0 \\ 0 & K_1 \\ K_2 & 0
+			\end{bmatrix}
+		\end{equation}
+	\end{tabularx}
+\end{subequations}
+
+\subsection{Problem 2}
+We verified the controllability of the system by checking that the controllability matrix $\mathcal{C}$ has full rank, as shown in \cref{eq:c}.
+\begin{equation}
+	\mathcal{C} = \begin{bmatrix}
+		\mbf{B} & \mbf{AB} & \mbf{A^2 B}
+	\end{bmatrix} = \begin{bmatrix}
+		0 & 0 & 0 & K_1 & 0 & 0\\ 0 & K_1 & 0 & 0 & 0 & 0\\ K_2 & 0 & 0 & 0 & 0 & 0
+	\end{bmatrix} \label{eq:c}
+\end{equation}
+The feed-forward matrix $\mbf{P}$ was defined as \todo{gjorde vi noen utregninger her? Kanskje sitere forelesningen/boken/?????}
+\begin{equation}
+	\mbf{P = (C (B K-A)^{-1} B)^{-1}}
+\end{equation}
+and computed by MATLAB after $\mbf{K}$.
+
+We then set out to define the weighting matrices $\mbf{Q}$ and $\mbf{R}$. We used Bryson's rule (setting each diagonal weight to the inverse square of the maximum allowable error($\mbf{Q}$) or input($\mbf{R}$)) as a starting point. Keeping the form of Bryson's rule, we adjusted the ``maximum allowable values'' until results were satisfactory. We ended up with Q and R matrices shown in \cref{eq:QR}.
+
+\begin{subequations}
+	\begin{tabularx}{\textwidth}{XX}
+	 \begin{equation}
+	   \mbf{Q} = \begin{bmatrix}
+	   	\frac{\pi}{4}^{-2} & 0 & 0 \\
+	   	0 & 2\pi^{-2} & 0 \\
+	   	0&0& \frac{\pi}{5}^{-2}
+	   \end{bmatrix}
+	 \end{equation}
+	 &
+	 \begin{equation}
+	   \mbf{R} = \begin{bmatrix}
+	   	9^{-2} & 0 \\
+	   	0 & 9^{-2}
+	   \end{bmatrix}
+	 \end{equation}
+	\end{tabularx}
+	\label{eq:QR}
+\end{subequations}
+
+Keeping the units in mind, these values make sense. The allowable pitch error is 1/8th of a circle, the allowable pitch rate ``error'' is 1 revolution per second, and the allowable elevation rate error is 1/10th of a revolution per second. The allowable inputs are 9 volts, which makes sense, considering that the motors saturate at a sum or difference of 10 volts.
+
+Finally, the $\mbf{K}$ was calculated by tha MATLAB function \verb+K = lqr(A,B,Q,R)+.
+\TODO{Legg inn faktisk K og P?}
+
+\subsection{Problem 3}
+We add the integrated states and get the augmented system with new $\mbf{A}$ and $\mbf{B}$ matrices.
+

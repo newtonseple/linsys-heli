@@ -13,6 +13,11 @@
 \usepackage{cleveref}
 \usepackage{todonotes}
 
+%% Brukes for tabeller (av likninger)
+\usepackage{tabularx}
+\def\tabularxcolumn#1{m{#1}}
+
+\newcommand{\TODO}[1]{\todo[inline]{#1}}
 \newcommand{\mbf}[1]{\mathbf{#1}} % Arg 1 is bold (in math environment)
 \newcommand{\partialderiv}[2]{\frac{\partial{#1}}{\partial{#2}}} % prints partial derivative as a fraction
 
@@ -72,9 +77,8 @@
 \setcounter{page}{1}
 \section{Part 1}
 \input{part1}
-% Part 2
 \input{part2}
-% Part 3
+\input{part3}
 % Part 4
 
 \newpage
