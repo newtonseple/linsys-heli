@@ -72,8 +72,26 @@ We then set out to define the weighting matrices $\mbf{Q}$ and $\mbf{R}$. We use
 
 Keeping the units in mind, these values make sense. The allowable pitch error is 1/8th of a circle, the allowable pitch rate ``error'' is 1 revolution per second, and the allowable elevation rate error is 1/10th of a revolution per second. The allowable inputs are 9 volts, which makes sense, considering that the motors saturate at a sum or difference of 10 volts.
 
-Finally, the $\mbf{K}$ was calculated by the MATLAB function \texttt{K = lqr(A,B,Q,R)}.
-\TODO{Legg inn faktisk K og P?}
+Finally, the $\mbf{K}$ was calculated by the MATLAB function \texttt{K = lqr(A,B,Q,R)}. Numerically, 
+
+
+\begin{subequations}
+	\begin{tabularx}{\textwidth}{XX}
+	 \begin{equation}
+	   \mbf{K} = \begin{bmatrix}
+	   	0&	0&	14.32\\
+		11.46&	6.43&	0
+	   \end{bmatrix}
+	 \end{equation}
+	 &
+	 \begin{equation}
+	   \mbf{P} = \begin{bmatrix}
+	   	0&	14.32 \\
+		11.46&	0
+	   \end{bmatrix}
+	 \end{equation}
+	\end{tabularx}
+\end{subequations}
 
 \subsection{Problem 3}
 We add the integrated states and get the augmented system with new matrices, described by the state space model
@@ -132,6 +150,24 @@ The new $\mbf{Q}$ and $\mbf{R}$ matrices became
 	\end{tabularx}
 \end{subequations}
 
-$\mbf{K}$ was computed as in problem 2, but using the augmented matrices. $\mbf{P}$ was computed as in problem 2, but using only the non-augmented system and the part of K concerned with the non-integral part (including the integral part makes the calculation impossible, presumably because the system would always approach the setpoint). This was achieved through the MATLAB command \texttt{P=inv((C/(B*K(:,1:3,:)-A))*B)}.
+$\mbf{K}$ was computed as in problem 2, but using the augmented matrices. $\mbf{P}$ was computed as in problem 2, but using only the non-augmented system and the part of K concerned with the non-integral part (including the integral part makes the calculation impossible, presumably because the system would always approach the setpoint). This was achieved through the MATLAB command \texttt{P=inv((C/(B*K(:,1:3,:)-A))*B)}. Numerically, 
+
+\begin{subequations}
+	\begin{tabularx}{\textwidth}{XX}
+	 \begin{equation}
+	   \mbf{K} = \begin{bmatrix}
+	   	0		&0		&22.60	&0		&14.32 \\
+		17.69	&7.921	&0		&11.46	&0
+	   \end{bmatrix}
+	 \end{equation}
+	&
+	 \begin{equation}
+	   \mbf{P} = \begin{bmatrix}
+	   	0&	14.32 \\
+		11.46&	0
+	   \end{bmatrix}
+	 \end{equation}
+	\end{tabularx}
+\end{subequations}
 
 This new controller proved even more accurate than the LQR without integral states; it is able to stay on an elevation level outside of the equilibrium. However, this introduced the danger of a runaway integral. This became apparent when the motor inputs were saturated, leading to situations where recovery was difficult, and a crash nigh unavoidable. This was mitigated by adding a limit to the setpoint, such that it was impossible to set a positive pitch rate reference at a maximum height, and impossible to set a negative pitch rate at ground level. Later (in part 4) a different approach was used, namely limiting the integrators themselves. This provided smoother control near the edges.
