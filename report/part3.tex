@@ -130,44 +130,34 @@ where \\
 The new $\mbf{Q}$ and $\mbf{R}$ matrices became
 
 \begin{subequations}
-	\begin{tabularx}{\textwidth}{XX}
-	 \begin{equation}
-	   \mbf{Q} = \begin{bmatrix}
+	 \begin{align}
+	   \mbf{Q} &= \begin{bmatrix}
 	   	\frac{\pi}{4}^{-2} & 0 & 0 & 0 & 0\\
 	   	0 & 2\pi^{-2} & 0 & 0 & 0\\
 	   	0&0& \frac{\pi}{5}^{-2} & 0 & 0\\
 	   	0&0&0& \frac{\pi}{4}^{-2} & 0\\
 	   	0&0&0&0& \frac{\pi}{5}^{-2} \\
-	   \end{bmatrix}
-	 \end{equation}
-	 &
-	 \begin{equation}
-	   \mbf{R} = \begin{bmatrix}
+	   \end{bmatrix}\\
+	   \mbf{R} &= \begin{bmatrix}
 	   	9^{-2} & 0 \\
 	   	0 & 9^{-2}
 	   \end{bmatrix}
-	 \end{equation}
-	\end{tabularx}
+	 \end{align}
 \end{subequations}
 
 $\mbf{K}$ was computed as in problem 2, but using the augmented matrices. $\mbf{P}$ was computed as in problem 2, but using only the non-augmented system and the part of K concerned with the non-integral part (including the integral part makes the calculation impossible, presumably because the system would always approach the setpoint). This was achieved through the MATLAB command \texttt{P=inv((C/(B*K(:,1:3,:)-A))*B)}. Numerically, 
 
 \begin{subequations}
-	\begin{tabularx}{\textwidth}{XX}
-	 \begin{equation}
-	   \mbf{K} = \begin{bmatrix}
+	 \begin{align}
+	   \mbf{K} &= \begin{bmatrix}
 	   	0		&0		&22.60	&0		&14.32 \\
 		17.69	&7.921	&0		&11.46	&0
-	   \end{bmatrix}
-	 \end{equation}
-	&
-	 \begin{equation}
-	   \mbf{P} = \begin{bmatrix}
+	   \end{bmatrix} \\
+	   \mbf{P} &= \begin{bmatrix}
 	   	0&	14.32 \\
 		11.46&	0
 	   \end{bmatrix}
-	 \end{equation}
-	\end{tabularx}
+	 \end{align}
 \end{subequations}
 
 This new controller proved even more accurate than the LQR without integral states; it is able to stay on an elevation level outside of the equilibrium. However, this introduced the danger of a runaway integral. This became apparent when the motor inputs were saturated, leading to situations where recovery was difficult, and a crash nigh unavoidable. This was mitigated by adding a limit to the setpoint, such that it was impossible to set a positive pitch rate reference at a maximum height, and impossible to set a negative pitch rate at ground level. Later (in part 4) a different approach was used, namely limiting the integrators themselves. This provided smoother control near the edges.
